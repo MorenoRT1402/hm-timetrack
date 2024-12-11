@@ -10,6 +10,7 @@ class RoleAndPermissionSeeder extends Seeder
 {
     // Define constants for roles
     private const ROLE_ADMIN = 'admin';
+    private const ROLE_VALIDATOR = 'validator';
     private const ROLE_EMPLOYEE = 'employee';
 
     // Define constants for permissions
@@ -23,6 +24,7 @@ class RoleAndPermissionSeeder extends Seeder
     {
         // Create Roles
         $admin = Role::create(['name' => self::ROLE_ADMIN]);
+        $validator = Role::create(['name' => self::ROLE_VALIDATOR]);
         $employee = Role::create(['name' => self::ROLE_EMPLOYEE]);
 
         // Create Permissions
@@ -37,6 +39,7 @@ class RoleAndPermissionSeeder extends Seeder
 
         // Assign Permissions to Roles
         $admin->givePermissionTo($permissions);
+        $validator->givePermissionTO([self::PERMISSION_EDIT_ENTRIES]);
         $employee->givePermissionTo([self::PERMISSION_CREATE_ENTRIES]);
     }
 }
