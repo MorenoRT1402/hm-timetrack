@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => Hash::make('test1234'),
+            'email_verified_at' => now(),
         ]);
     }
 }
